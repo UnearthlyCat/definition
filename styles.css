@@ -1,0 +1,358 @@
+:root {
+    /* Кольори для секції "Digital" (верхній блок) */
+    --digital-bg-start: #c7c7c7;   /* Світло-сірий (початок градієнта) */
+    --digital-bg-end: #949494;     /* Темніший сірий (кінець градієнта) */
+    --digital-text-color: #333;    /* Темний текст для "Digital" секції */
+
+    /* Кольори для кнопок відтворення (Play button) */
+    --audio-icon-color: #1f86ca; /* Оригінальний синій колір іконки */
+    --audio-icon-hover: #1f86ca; /* Зберігаємо той самий колір при наведенні */
+    --button-bg: #ffffff;       /* Білий фон кнопки */
+    --button-hover: #f0f0f0;     /* Трохи темніший білий при наведенні */
+
+    /* Кольори для секції "Definition" */
+    --definition-bg-start: #f0f0f0; /* Дуже світлий сірий для визначення */
+    --definition-bg-end: #dcdcdc;   /* Трохи темніший сірий для визначення */
+    --definition-text-color: #444; /* Темний текст для визначення */
+    --definition-heading-color: #222; /* Колір заголовка Definition */
+
+    /* Кольори для секції "Exercise" (нижній блок) */
+    --exercise-bg-start: #f8f8f8; /* Майже білий для початку градієнта Exercise */
+    --exercise-bg-end: #e0e0e0;   /* Світло-сірий для кінця градієнта Exercise */
+    --exercise-heading-color: #333; /* Колір заголовка Exercise */
+
+    /* Кольори для контейнера iframe в Exercise */
+    --interactive-box-bg: #36454f; /* Темно-сірий/вугільний колір для контейнера iframe */
+
+    /* Загальні кольори та шрифти */
+    --body-bg: #e0e0e0; /* Світло-сірий фон сторінки */
+    --shadow-color: rgba(0, 0, 0, 0.2); /* Колір тіні */
+    --font-family: 'Arial', sans-serif;
+}
+
+/* Скидання стилів */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--body-bg);
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центруємо вміст по горизонталі */
+    padding: 20px 10px; /* Відступи по боках для мобільних пристроїв */
+    overflow-x: hidden; /* Запобігаємо горизонтальній прокрутці для всієї сторінки */
+}
+
+/* Стилі для верхнього блоку "Digital" */
+.audio-player {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.container {
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(135deg, var(--digital-bg-start), var(--digital-bg-end));
+    border-radius: 10px;
+    color: var(--digital-text-color);
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.term {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-shadow: none;
+}
+
+.pronunciation {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+}
+
+.pronunciation > div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.pron-label {
+    font-weight: bold;
+    color: var(--digital-text-color);
+}
+
+.phonetic {
+    font-style: italic;
+    color: #666;
+}
+
+.audio-btn {
+    background: var(--button-bg);
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: all 0.2s ease-in-out;
+}
+
+.audio-btn:hover {
+    background-color: var(--button-hover);
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.audio-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: var(--audio-icon-color);
+}
+
+.audio-btn:hover svg {
+    fill: var(--audio-icon-hover);
+}
+.audio-btn circle {
+    stroke: var(--audio-icon-color);
+    stroke-width: 2;
+}
+.audio-btn:hover circle {
+    stroke: var(--audio-icon-hover);
+}
+.audio-btn polygon {
+    fill: var(--audio-icon-color);
+}
+.audio-btn:hover polygon {
+    fill: var(--audio-icon-hover);
+}
+
+/* --- СТИЛІ ДЛЯ СЕКЦІЇ "DEFINITION" --- */
+.definition-section {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 30px;
+    text-align: center;
+    padding: 20px;
+    
+    background-image: linear-gradient(135deg, var(--definition-bg-start), var(--definition-bg-end));
+    border-radius: 10px;
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.definition-content {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    text-align: left;
+}
+
+.definition-content h3 {
+    font-size: 1.5rem;
+    color: var(--definition-heading-color);
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.definition-content p {
+    font-size: 1.1rem;
+    color: var(--definition-text-color);
+    line-height: 1.6;
+}
+
+/* --- Стилі для секції "Exercise" --- */
+.exercise {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 30px;
+    padding: 20px;
+    text-align: center;
+    
+    background-image: linear-gradient(135deg, var(--exercise-bg-start), var(--exercise-bg-end));
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Стили для ссылки "Exercise" */
+.exercise-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.exercise-link h2 {
+    font-size: 2rem;
+    color: var(--exercise-heading-color);
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.exercise-link:hover {
+    color: #555;
+}
+
+
+/* Стилі для iframe в Exercise */
+.exercise-content-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 75%; /* Соотношение 4:3, подстрой под реальные размеры изображения */
+    height: 0;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    background-color: var(--interactive-box-bg);
+    background-image: url('images/unnamed.jpg'); /* Добавь путь, если фон через изображение */
+    background-size: cover; /* Растянет изображение на весь контейнер */
+    background-position: center; /* Центрирует изображение */
+    background-repeat: no-repeat;
+}
+
+.exercise-content-wrapper iframe,
+.exercise-content-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Для img или iframe */
+    border: none;
+    display: block;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+
+/* Адаптивний дизайн для мобільних пристроїв */
+@media (max-width: 600px) {
+    body {
+        padding: 15px 5px;
+    }
+
+    .audio-player {
+        margin-bottom: 15px;
+    }
+
+    .container {
+        padding: 15px;
+        border-radius: 8px;
+    }
+
+    .term {
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+
+    .pronunciation {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .pronunciation > div {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .pron-label, .phonetic {
+        font-size: 0.95rem;
+        text-align: center;
+        width: auto;
+    }
+
+    .audio-btn {
+        width: 32px;
+        height: 32px;
+    }
+    .audio-btn svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    /* Адаптація Definition */
+    .definition-section {
+        margin-bottom: 20px;
+        padding: 15px;
+        border-radius: 8px;
+    }
+    .definition-content {
+        padding: 15px;
+        border-radius: 6px;
+    }
+    .definition-content h3 {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+    }
+    .definition-content p {
+        font-size: 1rem;
+    }
+
+    .exercise {
+        padding: 15px;
+        margin-top: 20px;
+        border-radius: 10px;
+    }
+
+    .exercise-link h2 {
+        margin-bottom: 15px;
+    }
+
+
+    /* Адаптація iframe в Exercise для мобільних */
+    .exercise-content-wrapper {
+        /* Додаю 0.5% до 75% як компенсацію для мобільних. */
+        padding-bottom: 75.5%; /* (384 / 512) * 100% = 75%, плюс невеликий запас. */
+    }
+}
+
+/* Додатковий breakpoint для дуже маленьких екранів */
+@media (max-width: 380px) {
+    .term {
+        font-size: 1.6rem;
+    }
+    .pronunciation > div {
+        gap: 3px;
+    }
+
+    .audio-btn {
+        width: 28px;
+        height: 28px;
+    }
+    .audio-btn svg {
+        width: 14px;
+        height: 14px;
+    }
+    .exercise h2 {
+        font-size: 1.4rem;
+    }
+
+    .definition-content h3 {
+        font-size: 1.2rem;
+    }
+    .definition-content p {
+        font-size: 0.95rem;
+    }
+    
+    .exercise-content-wrapper {
+        /* Додаю 0.5% до 75% як компенсацію для дуже маленьких екранів. */
+        padding-bottom: 75.5%; /* (384 / 512) * 100% = 75%, плюс невеликий запас. */
+    }
+}
